@@ -1,0 +1,123 @@
+--表单在线cdn版本表
+create table TA_ZNTB_FORM_CDN_VERSION
+(
+ id            VARCHAR2(50) not null,
+ s3_path     VARCHAR2(1000),
+ batch_no  VARCHAR2(100),
+ bucket_name VARCHAR2(50),
+ file_name VARCHAR2(100),
+ form_version VARCHAR2(200),
+ type VARCHAR2(10),
+ create_date     DATE default sysdate,
+ update_date    DATE default sysdate
+)
+;
+comment on table TA_ZNTB_FORM_CDN_VERSION
+  is '表单在线cdn版本表';
+comment on column TA_ZNTB_FORM_CDN_VERSION.id
+  is '主键ID';
+comment on column TA_ZNTB_FORM_CDN_VERSION.s3_path
+  is 'S3存储地址';
+comment on column TA_ZNTB_FORM_CDN_VERSION.batch_no 
+  is '批次号';
+comment on column TA_ZNTB_FORM_CDN_VERSION.bucket_name
+  is 'S3桶名';
+comment on column TA_ZNTB_FORM_CDN_VERSION.file_name 
+  is '文件名称';
+comment on column TA_ZNTB_FORM_CDN_VERSION.form_version
+  is '表单版本号';
+comment on column TA_ZNTB_FORM_CDN_VERSION.type
+  is '文件类型（css,js）';
+comment on column TA_ZNTB_FORM_CDN_VERSION.create_date    
+  is '创建时间';
+comment on column TA_ZNTB_FORM_CDN_VERSION.update_date   
+  is '更新时间';
+alter table TA_ZNTB_FORM_CDN_VERSION
+  add primary key (ID);
+
+
+--表单cdn系统表
+create table TA_ZNTB_FORM_CDN_SYS
+(
+ id            VARCHAR2(50) not null,
+ sys_name  VARCHAR2(100),
+ sys_code  VARCHAR2(100),
+ create_date     DATE default sysdate,
+ update_date    DATE default sysdate
+)
+;
+comment on table TA_ZNTB_FORM_CDN_SYS
+  is '表单cdn系统表';
+comment on column TA_ZNTB_FORM_CDN_SYS.id
+  is '主键ID';
+comment on column TA_ZNTB_FORM_CDN_SYS.sys_name  
+  is '系统名称';
+comment on column TA_ZNTB_FORM_CDN_SYS.sys_code  
+  is '系统编码';
+comment on column TA_ZNTB_FORM_CDN_SYS.create_date    
+  is '创建时间';
+comment on column TA_ZNTB_FORM_CDN_SYS.update_date   
+  is '更新时间';
+alter table TA_ZNTB_FORM_CDN_SYS
+  add primary key (ID);
+ALTER TABLE TA_ZNTB_FORM_CDN_SYS
+ADD CONSTRAINT TA_ZNTB_FORM_CDN_SYS_unique_sys_code UNIQUE (sys_code );
+
+--表单cdn系统版本关系表
+create table TA_ZNTB_FORM_CDN_VERSION_REF
+(
+ id            VARCHAR2(50) not null,
+ batch_no  VARCHAR2(100),
+ sys_code VARCHAR2(50),
+ state VARCHAR2(50),
+ create_date     DATE default sysdate,
+ update_date    DATE default sysdate
+)
+;
+comment on table TA_ZNTB_FORM_CDN_VERSION_REF
+  is '表单在线cdn版本表';
+comment on column TA_ZNTB_FORM_CDN_VERSION_REF.id
+  is '主键ID';
+comment on column TA_ZNTB_FORM_CDN_VERSION_REF.batch_no 
+  is '批次号';
+comment on column TA_ZNTB_FORM_CDN_VERSION_REF.sys_code  
+  is '系统编码';
+comment on column TA_ZNTB_FORM_CDN_VERSION_REF.state 
+  is '状态(0:发布，1:未发布)';
+comment on column TA_ZNTB_FORM_CDN_VERSION_REF.create_date    
+  is '创建时间';
+comment on column TA_ZNTB_FORM_CDN_VERSION_REF.update_date   
+  is '更新时间';
+alter table TA_ZNTB_FORM_CDN_VERSION_REF
+  add primary key (ID);
+ALTER TABLE TA_ZNTB_FORM_CDN_VERSION_REF
+ADD CONSTRAINT TA_ZNTB_FORM_CDN_VERSION_REF_unique_batch_no  UNIQUE (batch_no );
+
+
+--表单cdn发布版本记录表
+create table TA_ZNTB_FORM_CDN_RELEASE_HIS
+(
+ id            VARCHAR2(50) not null,
+ batch_no  VARCHAR2(100),
+ sys_code VARCHAR2(50),
+ state VARCHAR2(10),
+ create_date     DATE default sysdate,
+ update_date    DATE default sysdate
+)
+;
+comment on table TA_ZNTB_FORM_CDN_RELEASE_HIS
+  is '表单在线cdn版本表';
+comment on column TA_ZNTB_FORM_CDN_RELEASE_HIS.id
+  is '主键ID';
+comment on column TA_ZNTB_FORM_CDN_RELEASE_HIS.batch_no 
+  is '批次号';
+comment on column TA_ZNTB_FORM_CDN_RELEASE_HIS.sys_code  
+  is '系统编码';
+comment on column TA_ZNTB_FORM_CDN_RELEASE_HIS.state 
+  is '状态(0:发布，1:未发布)';
+comment on column TA_ZNTB_FORM_CDN_RELEASE_HIS.create_date    
+  is '创建时间';
+comment on column TA_ZNTB_FORM_CDN_RELEASE_HIS.update_date   
+  is '更新时间';
+alter table TA_ZNTB_FORM_CDN_RELEASE_HIS
+  add primary key (ID);
