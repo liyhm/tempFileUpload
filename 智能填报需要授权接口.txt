@@ -1,0 +1,108 @@
+1.查询智能填报全局变量  
+1.1 请求方式GET
+1.2 路径 /zntb/v2/globalparam/list
+
+2.查询智能填报规则库
+2.1 请求方式GET
+2.2 路径 /knowfill/v2/ZntbValidationRuleInfo/getAll
+
+3.获取规则库规则
+3.1 请求方式GET
+3.2 路径 /zntb/v2/rule/list
+
+4.获取信息集树
+4.1 请求方式GET
+4.2 路径 /zntb/v2/infogroup/tree
+
+5.获取信息集下的信息项
+5.1 请求方式GET
+5.2 路径 /zntb/v2/infoitem/inst/page
+
+6.信息项库信息项分类树
+6.1 请求方式GET
+6.2 路径 /zntb/v2/infoitemSort/tree
+
+7.获取信息库下的信息项
+7.1 请求方式GET
+7.2 路径 /zntb/v2/infoitem/page
+
+8.根据ID或编码查询信息集
+8.1 请求方式GET
+8.2 路径 /zntb/v2/infogroup
+
+9.获取规则库规则
+9.1 请求方式GET
+9.2 路径 /zntb/v2/rule/page
+
+10.批量创建表单
+10.1 请求方式POST
+10.2 路径 /zntb/v2/form/batch
+
+11.跟据infoItemCode查询指定智能填报信息项实例表
+11.1 请求方式GET
+11.2 路径 /zntb/v2/infoitem/inst/ZntbInfoItemInst/getByInfoItemCode
+
+12.根据信息项infoItemCode查询关联值域信息
+12.1 请求方式GET
+12.2 路径 /zntb/v2/infoitem/{infoItemCode}/getValeRangeInfo/valuerange
+
+13.根据信息项infoItemCode集查询关联值域信息
+13.1 请求方式GET
+13.2 路径 /zntb/v2/infoitem/getValeRangeInfoByInfoItemCodeArray/valuerange
+
+14.依据pid查询子区域列表
+14.1 请求方式GET
+14.2 路径 /zntb/area/number/array
+
+15.根据信息项ID查询值域
+15.1 请求方式GET
+15.2 路径 zntb/v2/infoitem/{itemId}/valuerange
+
+16.根据信息项和关系配置更新表单schema
+16.1 请求方式post
+16.2 路径 zzntb/v2/form/formSchema/update
+
+17.存表单schema字符串 （草稿版本）
+17.1 请求方式post
+17.2 路径 zntb/v2/formSchema/save
+
+18.查询表单schema
+18.1 请求方式get
+18.2 路径 zntb/v2/form/draft/schema/{formId}
+
+19.通过申请者类型查询表单下的信息项
+19.1 请求方式get
+19.2 路径 /zntb/v2/form/infoitem/inst/appleType/list
+
+20.通过表单id查询表单下的信息项
+20.1 请求方式get
+20.2 路径 /zntb/v2/form/infoitem/inst/list
+
+21.通过规则ID查询规则详情
+21.1 请求方式get
+21.2 路径 /zntb/v2/rule/{ruleId}/detail
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
